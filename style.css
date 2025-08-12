@@ -380,7 +380,7 @@ body {
     color:var(--color-2);
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
-.section h1{
+.section-invi h1{
     font-family: var(--font-text);
     padding: 15px;
     font-weight: 400;
@@ -395,9 +395,6 @@ body {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 /*secciones otros colores*/
-.section-filter, .section-playlist{
-    background-color: #fbf2f2;
-}
 .section-playlist p {
     font-family: var(--font-text);
     font-style: italic;
@@ -452,7 +449,7 @@ body {
     top: 18%;
     font-size: 50px;
 }
-.section h2, .section-playlist h2, .section-gifts h2, .section h3, .section-filter h2{
+.section-invi h2, .section-playlist h2, .section-gifts h2, .section h3, .section-filter h2{
     font-family: var(--font-title);
     padding: 10px;
     font-weight: 400;
@@ -463,7 +460,7 @@ body {
     color: var(--color-2);
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
-.section p, .section-gifts p, .section-filter p{
+.section-invi p, .section-gifts p, .section-filter p{
     font-family: var(--font-text);
     font-style: italic;
     font-weight: 400;
