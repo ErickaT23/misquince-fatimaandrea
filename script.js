@@ -139,7 +139,7 @@ function confirmarAsistencia() {
     // 1) Copia el enlace "prellenado" de tu Google Form
     // 2) Reemplaza FORM_ID por el de tu formulario
     // 3) Reemplaza entry.NOMBRE y entry.PASES por los IDs reales de tus preguntas
-    const base = 'https://docs.google.com/forms/d/e/FORM_ID/viewform';
+    const base = 'https://docs.google.com/forms/d/e/1FAIpQLSfZBEOTTsv8iFlTjYDWNA4lHl1EqfwP2S5f3jXsGey9MObHDQ/viewform?usp=header&entry.111111111=Nombre&entry.222222222=Pases';
   
     // Ejemplo con parámetros prellenados:
     // entry.111111111 = Nombre del invitado
