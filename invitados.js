@@ -57,7 +57,9 @@ window.invitados = {
   '56': { nombre: 'sin nombre', pases: 2 },
   '57': { nombre: 'sin nombre', pases: 3 },
   '58': { nombre: 'sin nombre', pases: 4 },
-  '59': { nombre: 'sin nombre', pases: 5 }
+  '59': { nombre: 'sin nombre', pases: 5 },
+  '60': { nombre: 'Damaris Pineda', pases: 1 },
+  '61': { nombre: 'José Merida', pases: 1 },
 };
 
   

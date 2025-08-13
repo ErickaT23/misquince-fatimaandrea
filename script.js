@@ -44,11 +44,30 @@ function cargarDatosInvitado() {
   
     const invitado = (window.invitados || {})[invitadoId];
   
-    if (invitado) {
-      document.getElementById('nombreInvitado').innerText = invitado.nombre;
-      document.getElementById('cantidadPases').innerText = `Pases: ${invitado.pases}`;
-    } else {
+    if (!invitado) {
       alert('Invitado no encontrado.');
+      return;
+    }
+  
+    const elNombre = document.getElementById('nombreInvitado');
+    const elPases  = document.getElementById('cantidadPases');
+  
+    // Mostrar/ocultar nombre
+    if (elNombre) {
+      const nombre = (invitado.nombre || '').trim();
+      if (nombre && nombre.toLowerCase() !== 'sin nombre') {
+        elNombre.innerText = nombre;
+        elNombre.style.removeProperty('display'); // por si antes se ocultó
+      } else {
+        elNombre.style.display = 'none';
+      }
+    }
+  
+    // Mostrar pases (con fallback seguro)
+    if (elPases) {
+      const pasesNum = Number(invitado.pases);
+      elPases.innerText = `Pases: ${Number.isFinite(pasesNum) ? pasesNum : 1}`;
+      elPases.style.removeProperty('display');
     }
   }
   
