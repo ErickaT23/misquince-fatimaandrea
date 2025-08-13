@@ -7,7 +7,8 @@
     --font-text:"Playfair", serif;
     --scroll-animation-duration: 0.5s;
 }
-
+/* Siempre reserva el espacio del scroll para evitar saltos horizontales */
+html { overflow-y: scroll; }
 body {
     padding: 0;
     margin: 0;
@@ -17,7 +18,9 @@ body {
     justify-content: center;
     min-height: 100vh;
     text-align: center;
-    background-color: #eee7cb;
+    /* Fondo */
+    background: url('/imagenes/fondo-beige.png') center / cover no-repeat;
+    background-color: #eee7cb; /* fallback */
     font-family: 'cormorant garamond';
     font-style: italic;
 }
@@ -96,16 +99,6 @@ body {
     position: relative;
 }
 /* Imagen sintillo */
-.section-main .decoracion-sintillo {
-    position: absolute;
-    top: 0; /* empieza desde arriba */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%; /* ajusta si quieres más pequeño */
-    max-width: 900px; /* limita en pantallas grandes */
-    z-index: 1; /* detrás de los textos pero encima de la foto */
-    pointer-events: none; /* evita que bloquee clics */
-}
 /* Textos sobre la foto */
 .section-main .texto-sobre-foto h1,
 .section-main .texto-sobre-foto h2,
@@ -120,21 +113,29 @@ body {
     overflow: hidden; /* evita que desborde */
     text-overflow: ellipsis; /* opcional: puntos suspensivos si fuera muy largo */
 }
-
+.section-main .texto-sobre-foto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 16px; /* aire lateral en móvil */
+  }
 /* Tamaños grandes que se adaptan */
 .section-main .texto-sobre-foto h1 {
-    font-size: clamp(35px, 5vw, 70px);
+    font-size: 40px;
     margin-top: -315px;
 }
-
 .section-main .texto-sobre-foto h2 {
-    font-size: clamp(43px, 6vw, 90px);
+    white-space: nowrap;      /* 1 sola línea */
+    font-size: 50px;
 }
-
 .section-main .texto-sobre-foto h3 {
-    font-size: clamp(40px, 5vw, 70px);
+    font-size:50px;
 }
-
 .section-main .texto-sobre-foto {
     position: absolute;
     top: 50%; /* ajusta si quieres más arriba o más abajo */
@@ -144,52 +145,26 @@ body {
     z-index: 2;
     max-width: 95%; /* evita que el texto se salga de la foto */
 }
-
 /*secciones generales*/
 .section , .section-playlist, .section-filter, .section-quote{
     padding: 0;
     transform: translateY(20px);
     animation: fadeIn var(--scroll-animation-duration) ease-in forwards;
 }
-/*sección div1*/
-.section-cerezo0{
-    position: relative;
-    width: 100%;
-    height: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    margin-top: -30px
-}
-.section-cerezo0::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('/imagenes/vela.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-}
 /*sección countdown*/
 .section-countdown {
     position: relative;
-    background-image: url('/imagenes/fondo-liso.png'); /* cambia por tu imagen */
+    background-image: url('/imagenes/vela-2.png'); /* cambia por tu imagen */
     background-size: cover; /* cubre toda el área */
     background-position: center;
     background-repeat: no-repeat;
     padding: 40px 20px; /* da aire al contenido */
-    border-radius: 10px; /* opcional: esquinas redondeadas */
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: -30px;
 }
 .section-countdown::before {
     content: "";
@@ -302,12 +277,10 @@ body {
     background-repeat: no-repeat;
     width: 100%;
     height: 300px;
-    z-index: 2;
-    padding: 20px;
+    z-index: -2;
     box-sizing: border-box;
-    margin-top: -30px;
-    margin-bottom: -100px;
-    border-radius: 10px;
+    margin-top: -100px;
+    margin-bottom: -50px;
 }
 .section-music * {
     position: relative;
@@ -319,30 +292,6 @@ body {
     font-weight: 400;
     font-style: italic;
 }
-/*section div2*/
-.section-cerezo{
-    position: relative;
-    width: 100%;
-    height: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-.section-cerezo::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('/imagenes/reloj.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-}
 /*section blessed*/
 .section-b {
     position: relative;
@@ -353,7 +302,7 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-image: url('/imagenes/tazas.png'); /* Cambia por tu imagen */
+    background-image: url('/imagenes/reloj-2.png'); /* Cambia por tu imagen */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -364,7 +313,7 @@ body {
     font-weight: 400;
     font-size: 28px;
     margin-top: -60px;
-    background: linear-gradient(to right, #b29a68, #d4af37, #ffd700, #d4af37, #b29a68);
+    background: linear-gradient(to right,  #7a1212,#B22222, #d43c3c ,#B22222, #7a1212);
     -webkit-background-clip: text;
     color: transparent;
     animation: shine 1.5s infinite linear;
@@ -377,8 +326,26 @@ body {
     font-size: 50px;
     margin-top: -10px;
     margin-bottom: -10px;
-    color:var(--color-2);
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right,  #7a1212,#B22222, #d43c3c ,#B22222, #7a1212);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+}
+.section-invi {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: url('/imagenes/fondo-pringas.png'); /* Cambia por tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: -50px;
+    z-index: -2;
 }
 .section-invi h1{
     font-family: var(--font-text);
@@ -394,24 +361,32 @@ body {
     animation: shine 1.5s infinite linear;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
-/*secciones otros colores*/
-.section-playlist p {
-    font-family: var(--font-text);
-    font-style: italic;
+.section-invi h3{
+    font-family: var(--font-title);
+    padding: 15px;
     font-weight: 400;
-    font-size: 28px;
-    color: var(--color-2);
+    font-style: italic;
+    font-size: 40px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+    background: linear-gradient(to right,  #7a1212,#B22222, #d43c3c ,#B22222, #7a1212);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 /*section div3*/
 .section-cerezo1{
     position: relative;
     width: 100%;
-    height: 280px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    margin-top: -50px;
+    margin-bottom: -45px;
 }
 .section-cerezo1::before {
     content: "";
@@ -420,22 +395,134 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/imagenes/38.png');
+    background-image: url('/imagenes/separador.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -1;
+    z-index: 1;
 }
-.section-main {
+.section-rsvp, .section-gifts, .section-dresscode{
     position: relative;
-    margin: 0;
-    padding: 0;
-    transform: translateY(20px);
-    animation: fadeIn var(--scroll-animation-duration) ease-in forwards;
-}
-.section-main img {
     width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: url('/imagenes/fondo-pringas.png'); /* Cambia por tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.section-iti{
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: url('/imagenes/fondo-bella.png'); /* Cambia por tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.section-playlist{
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: url('/imagenes/fondo-rosa.png'); /* Cambia por tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.section-filter{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: url('/imagenes/fondo-bella-bestia.png'); /* Cambia por tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: -100px;
+}
+/* Sección Álbum Digital */
+.album-section {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: url('/imagenes/fondo-pringas.png'); /* Cambia por tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0; /* consistente con tus section */
+  }
+.album-section .album-qr {
+    width: 260px;
+    max-width: 70vw;
     height: auto;
+    display: block;
+    margin: 0 auto 16px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+    border-radius: 8px; /* opcional si el QR tiene fondo blanco */
+  }
+  /* Botón de subir (usa tu misma estética de botones) */
+.album-section .upload-btn {
+    background-color:var(--color-2);
+    color: #fff;
+    border-radius: 5px;
+    font-family: var(--font-text);
+    padding: 10px;
+    transition: background-color 0.3s;
+    border: none;
+    font-size: 1em;
+    text-transform: none;
+    margin-bottom: 20px;
+    font-style: italic;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+.album-section .upload-btn:hover {
+    background-color: #d4af37;
+    color: white;
+}
+.icono-section {
+    width: 200px;       /* mismo “width” que usabas en lord-icon */
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+}
+.section-quote{
+    position: relative;
+    width: 100%;
+    height: 510px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: url('/imagenes/fondo-castillo.png'); /* Cambia por tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .section-quote h1 {
     font-family: var(--font-title);
@@ -449,7 +536,7 @@ body {
     top: 18%;
     font-size: 50px;
 }
-.section-invi h2, .section-playlist h2, .section-gifts h2, .section h3, .section-filter h2{
+.section-invi h2, .section-playlist h2, .section-gifts h2, .section h3, .section-filter h3, .section h2, .section-rsvp h3,.section-iti h2, .section-dresscode h2, .album-section h3{
     font-family: var(--font-title);
     padding: 10px;
     font-weight: 400;
@@ -457,19 +544,128 @@ body {
     font-size: 40px;
     margin-top: 20px;
     margin-bottom: 10px;
-    color: var(--color-2);
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right,  #7a1212,#B22222, #d43c3c ,#B22222, #7a1212);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
 }
-.section-invi p, .section-gifts p, .section-filter p{
+.section-invi p, .section-gifts p, .section-filter p, .section p, .section-rsvp p, .section-iti p, .section-dresscode p, .section-playlist p, .album-section p{
     font-family: var(--font-text);
     font-style: italic;
     font-weight: 400;
     font-size: 24px;
     padding: 5px;
     margin: 0;
-    color: var(--color-2);
+    background: linear-gradient(to right,  #7a1212,#B22222, #d43c3c ,#B22222, #7a1212);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
 }
-.section span{
+/* Buenos deseos: que no se corte el contenido */
+.section-wishes{
+    height: auto !important;     /* deja que crezca */
+    min-height: 600px;           /* altura base opcional */
+    overflow: visible !important;
+}  
+.section-wishes {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: url('/imagenes/fondo-pringas.png'); /* Cambia por tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0; /* consistente con tus section */
+    padding: 10px 10px 10px 10px;
+    max-width: 2000px;
+}
+  .section-wishes h2 {
+    font-family: var(--font-title);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 40px;
+    margin: 0 0 16px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    background: linear-gradient(to right, #7a1212, #B22222, #d43c3c, #B22222, #7a1212);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+    padding: 10px 10px 10px 10px;
+  }
+  .section-wishes input,
+  .section-wishes textarea {
+    width: 100%;
+    max-width: 640px;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    margin: 8px auto;
+    font-family: var(--font-text);
+    font-style: italic;
+    font-size: 1em;
+    border: 1px solid rgba(178,34,34,0.35);
+    border-radius: 8px;
+    outline: none;
+    background-color: #eee7cb;
+  }
+  .section-wishes textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  .wish-card {
+    background: #eee7cb;
+    border-radius: 4px;                 /* menos redondeo */
+    padding: 10px 20px;                 /* menos alto, más ancho visual */
+    margin: 12px auto;
+    width: 100%;
+    max-width: 820px;                   /* más ancha */
+    min-height: 72px;                   /* da forma rectangular */
+    text-align: left;
+    line-height: 1.3;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    border: 1px solid rgba(178,34,34,0.35);
+  }
+  .wish-card strong { display: block; margin-bottom: 4px; }
+  
+  .wish-card strong {
+    font-family: var(--font-text);
+    background: linear-gradient(to right, #7a1212, #B22222, #d43c3c, #B22222, #7a1212);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+    font-size: 18px;
+  }
+  .wish-card em {
+    background: linear-gradient(to right, #7a1212, #B22222, #d43c3c, #B22222, #7a1212);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+    font-style: italic;
+  }
+  /* Sparkles (opcional) */
+  #magicEffect {
+    position: relative;
+    pointer-events: none;
+  }
+  .sparkle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #ffd700 0%, #d4af37 60%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: sparkleFade 1s ease-out forwards;
+  }
+  @keyframes sparkleFade {
+    0%   { transform: scale(0.5); opacity: 1; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+  
+.section-iti span{
     font-family: var(--font-text);
     font-style: normal;
     font-weight: 400;
@@ -486,85 +682,10 @@ body {
     width: 50%;
     margin-top: -20px;
     margin-bottom: -20px;
-}/*section div4*/
-.section-cerezo2{
-    position: relative;
-    width: 100%;
-    height: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
 }
-.section-cerezo2::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('/imagenes/40.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-}
-/*galeria*/
-.galeria {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin: 20px;
-}
-.galeria img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s;
-}
-.galeria img:hover {
-    transform: scale(1.1);
-}
-.photo-modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-}
-.photo-modal img {
-    max-width: 80%;
-    max-height: 80%;
-    margin: auto;
-    display: block;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-}
-.close {
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}/*botones*/
+/*botones*/
 button {
-    background-color:#d4af37;
+    background-color:var(--color-2);
     color: #fff;
     border-radius: 5px;
     font-family: var(--font-text);
@@ -578,8 +699,8 @@ button {
     font-size: 1.2em;
 }
 button:hover {
-    background-color: white;
-    color: #d4af37;
+    background-color: #d4af37;
+    color: white;
 }
 /*footer*/
 footer {
@@ -705,5 +826,27 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
-
+/* Bloquea el scroll horizontal en toda la página */
+html, body {
+    overflow-x: hidden;
+    touch-action: pan-y; /* en móvil: solo desplazamiento vertical */
+  }
+  
+  /* Asegura que nada se “salga” por tamaños o paddings */
+  * { box-sizing: border-box; }
+  /* Contenedor principal centrado y sin desbordes */
+  #invitacion {
+    margin-inline: auto;
+    overflow-x: hidden;
+  }
+  /* Overlays fijos ocupando exactamente el viewport sin desbordar */
+  #envelope,
+  .photo-modal {
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
+  }
+  /* Evita que transform/hover cause desbordes laterales */
+  #envelope:hover { transform: none !important; }
+  
 

@@ -36,32 +36,26 @@ document.addEventListener('DOMContentLoaded', function() {
 function cargarDatosInvitado() {
     const params = new URLSearchParams(window.location.search);
     const invitadoId = params.get('id');
-
+  
     if (!invitadoId) {
-        alert('ID de invitado no encontrado en el enlace.');
-        return;
+      alert('ID de invitado no encontrado en el enlace.');
+      return;
     }
-
-    // Base de datos simulada
-    const invitados = {
-        '1': { nombre: 'Ana Pérez', pases: 3 },
-        '2': { nombre: 'Luis García', pases: 2 },
-        '3': { nombre: 'María López', pases: 4 }
-    };
-
-    const invitado = invitados[invitadoId];
-
+  
+    const invitado = (window.invitados || {})[invitadoId];
+  
     if (invitado) {
-        document.getElementById('nombreInvitado').innerText = invitado.nombre;
-        document.getElementById('cantidadPases').innerText = `Pases: ${invitado.pases}`;
+      document.getElementById('nombreInvitado').innerText = invitado.nombre;
+      document.getElementById('cantidadPases').innerText = `Pases: ${invitado.pases}`;
     } else {
-        alert('Invitado no encontrado.');
+      alert('Invitado no encontrado.');
     }
-}
+  }
+  
 
 // Función para iniciar el contador de la fecha del evento
 function iniciarContador() {
-    const eventoFecha = new Date("October 10, 2025 00:00:00").getTime();
+    const eventoFecha = new Date("October 4, 2025 17:00:00").getTime();
 
     setInterval(() => {
         const ahora = new Date().getTime();
@@ -129,49 +123,35 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //Funcion para confirmar la asistencia 
 function confirmarAsistencia() {
-    // Lee datos del DOM (o ajusta si ya guardas el invitado en una variable global)
+    // 1) Leer del DOM
     const nombre = document.getElementById('nombreInvitado')?.innerText?.trim() || 'Invitado';
     const pasesText = document.getElementById('cantidadPases')?.innerText || '';
     const match = pasesText.match(/(\d+)/);
     const pases = match ? parseInt(match[1], 10) : 1;
   
-    // === CONFIGURA AQUÍ TU FORM ===
-    // 1) Copia el enlace "prellenado" de tu Google Form
-    // 2) Reemplaza FORM_ID por el de tu formulario
-    // 3) Reemplaza entry.NOMBRE y entry.PASES por los IDs reales de tus preguntas
-    const base = 'https://docs.google.com/forms/d/e/1FAIpQLSfZBEOTTsv8iFlTjYDWNA4lHl1EqfwP2S5f3jXsGey9MObHDQ/viewform?usp=header&entry.111111111=Nombre&entry.222222222=Pases';
+    // 2) IDs reales del Form
+    const FORM = {
+      base: 'https://docs.google.com/forms/d/e/1FAIpQLSfZBEOTTsv8iFlTjYDWNA4lHl1EqfwP2S5f3jXsGey9MObHDQ/viewform',
+      entries: {
+        nombre: '1297710131',
+        pases:  '1099367965'
+      }
+    };
   
-    // Ejemplo con parámetros prellenados:
-    // entry.111111111 = Nombre del invitado
-    // entry.222222222 = # de pases
-    const params = new URLSearchParams({
-      'usp': 'pp_url',
-      'entry.111111111': nombre,
-      'entry.222222222': String(pases),
-    });
+    // 3) Armar URL con prefill
+    const params = new URLSearchParams({ usp: 'pp_url' });
+    params.set(`entry.${FORM.entries.nombre}`, nombre);
+    params.set(`entry.${FORM.entries.pases}`, String(pases));
   
-    const url = `${base}?${params.toString()}`;
+    const url = `${FORM.base}?${params.toString()}`;
     window.open(url, '_blank');
   }
   
 //Funcion para abrir waze o maps
-//iglesia
-function elegirAplicacion() {
-    const enlaceGoogleMaps = 'https://maps.app.goo.gl/dfD9cMEbSAdn56qV8';
-    const enlaceWaze = 'https://waze.com/ul?ll=14.558065,-90.729567&navigate=yes';
-
-    // Intentar abrir Google Maps primero
-    window.open(enlaceGoogleMaps, '_blank');
-    
-    // Intentar abrir Waze (en caso de que Google Maps no esté disponible)
-    setTimeout(() => {
-        window.open(enlaceWaze, '_blank');
-    }, 1000); // Retraso para permitir que el primer enlace se abra si está disponible
-}
 //fiesta
 function elegirAplicacionOtraDireccion() {
-    const enlaceGoogleMaps = 'https://maps.app.goo.gl/YokAqLQi9DA7hXXs8';
-    const enlaceWaze = 'https://waze.com/ul?ll=14.558065,-90.729567&navigate=yes';
+    const enlaceGoogleMaps = 'https://maps.app.goo.gl/GjZMJJ3eLStnJeZC7';
+    const enlaceWaze = 'https://waze.com/ul/h9fxdd7sxd';
 
     // Intentar abrir Google Maps primero
     window.open(enlaceGoogleMaps, '_blank');

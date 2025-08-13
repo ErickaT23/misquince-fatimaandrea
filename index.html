@@ -31,7 +31,7 @@
     <div id="invitacion">
         <!--Header-->
         <!-- Sección de Foto con imagen sintillo y textos encima -->
-    <div class="section-main fade-in-element">
+        <div class="section-main fade-in-element">
     <img src="/imagenes/foto-bella.png" alt="Foto de la quinceañera" width="100%">
     <!-- Textos sobre la imagen -->
     <div class="texto-sobre-foto">
@@ -39,15 +39,12 @@
         <h2>Fatima Andrea</h2>
         <h3>De León Canel</h3>
     </div>
-    </div>
-
-        <!--div cerezo-->
-        <div class="section-cerezo0"></div> 
+        </div>
         <!-- Contador de Fecha Regresiva -->
         <div class="section-countdown fade-in-element">
             <h1>¡Están invitados!</h1>
             <p>Nos encanta que sean parte de este momento tan especial para nosotros.</p>
-            <h2>10. 10 . 2025</h2>
+            <h2>4. 10 . 2025</h2>
             <div id="contador">
                 <div class="countdown-circle">
                     <span id="dias">00</span>
@@ -79,8 +76,6 @@
              Tu navegador no soporta la reproducción de audio.
           </audio>
         </div>   
-        <!--div cerezo-->
-        <div class="section-cerezo"></div>   
          <!-- Bendición de Padres -->
          <div class="section-b fade-in-element">
             <p>Con la bendición de Dios y de mis padres</p>
@@ -94,28 +89,27 @@
              <h3 id="nombreInvitado"></h3>
              <h3 id="cantidadPases"></h3>
            </div>
+                <!--div cerezo-->
+                <div class="section-cerezo1"></div>
         <!-- Confirmación -->
-        <div class="section fade-in-element">
+        <div class="section-rsvp fade-in-element">
             <h3>Confirmar Asistencia</h3>
             <lord-icon
-             src="https://cdn.lordicon.com/fjvfsqea.json"
+             src="https://cdn.lordicon.com/unkasvor.json"
              trigger="loop"
              delay="2000"
              stroke="light"
              colors="primary:#d4af37,secondary:#b22222"
              style="width:200px;height:200px">
            </lord-icon>
-           <p>Para nosotros es muy importante que confirmes tu asistencia antes del 05 de Junio, o bien indicarnos si no podrás acompañarnos.</p>
+           <p>Para nosotros es muy importante que confirmes tu asistencia antes del 05 de Septiembre, o bien indicarnos si no podrás acompañarnos.</p>
             <button onclick="confirmarAsistencia()">Confirmar</button>
             <div id="confirmacion"></div>
         </div>
-         <!--imagen-->
-         <div class="section fade-in-element">
-            <img src="/imagenes/V2.jpeg" alt="Foto de la quinceañera" width="100%" loading="lazy">
-        </div>
+                <!--div cerezo-->
+                <div class="section-cerezo1"></div>
         <!-- Itinerario -->
-        <div class="section fade-in-element">
-          <!--card ceremonia-->
+        <div class="section-iti fade-in-element">
          <!--card fiesta-->
            <div class="party fade-in-element">
             <lord-icon
@@ -126,15 +120,15 @@
              colors="primary:#d4af37,secondary:#b22222"
              style="width:200px;height:200px">
             </lord-icon>
-           <h2>Fiesta</h2>
-           <p>Camino Real Antigua</p>
+           <h2>Recepción</h2>
+           <p>Amnery's Castle - El Castillo</p>
            <div class="details">
             <div class="time-location">
-                <span class="date"> 21 Junio</span>
+                <span class="date"> 04 de Octubre</span>
                 <span class="separator">|</span>
-                <span class="time">18:30 hrs</span>
+                <span class="time">17:00 hrs</span>
             </div>
-        <p>7a Calle Poniente 33b Antigua Guatemala</p>
+        <p>Km 18.4 carretera al Pacifico Zona 3 Villa Nueva, Cdad. de Guatemala.</p>
         <button type="button" class="direction-button" onclick="elegirAplicacionOtraDireccion()">Cómo llegar</button>
            </div>
            </div>
@@ -155,6 +149,8 @@
             <p>Lo que más queremos es compartir contigo nuestro gran día, pero agradecemos mucho el gesto de un obsequio. Tendremos un cofre en la entrada para que puedas dejar tu sobre con efectivo</p>
             <p>¡Gracias!</p>
         </div>
+                <!--div cerezo-->
+                <div class="section-cerezo1"></div>
          <!-- Playlist -->
          <div class="section-playlist fade-in-element">
             <h2>Playlist</h2>
@@ -169,60 +165,66 @@
             <p>Nos encantaría que nos sugieras esas canciones que sabes que son geniales y no pueden faltar.</p>
             <button onclick="window.open('https://open.spotify.com/playlist/4bgs0PUtVn4OcWIBgNYi7p?si=d8f4618badc84124&pt=03833ade1e6784f89f183ea28c9fd9f5', '_blank')"> Abrir playlist en Spotify</button>
         </div>
-         <!--imagen-->
-         <div class="section fade-in-element">
-            <img src="/imagenes/V3.jpeg" alt="Foto de la quinceañera" width="100%" loading="lazy">
-        </div>
+                <!--div cerezo-->
+                <div class="section-cerezo1"></div>
          <!--dresscode-->
-         <div class="section fade-in-element">
+         <div class="section-dresscode fade-in-element">
             <h2>Dress Code</h2>
-            <lord-icon
-            src="https://cdn.lordicon.com/okgbpdra.json"
-            trigger="loop"
-            delay="2000"
-            stroke="light"
-            colors="primary:#d4af37,secondary:#b22222"
-            style="width:200px;height:200px">
-        </lord-icon>
+            <img src="/imagenes/dresscode.png" alt="Ícono de dress code" class="icono-section" loading="lazy"/>
             <p>Formal y elegante nos hemos reservado el color rojo y dorado, no olvides abrigarte bien.</p>
         </div>
-        <!--div cerezo-->
-        <div class="section-cerezo2"></div>   
-       <!-- Galería de Fotos -->
-       <div class="section fade-in-element">
-           <h2>Galería</h2>
-           <div class="galeria">
-             <img src="/imagenes/V6.jpeg" alt="Foto 1" class="galeria-imagen" onclick="changePhoto(this)" loading="lazy">
-             <img src="/imagenes/V5.webp" alt="Foto 2" class="galeria-imagen" onclick="changePhoto(this)" loading="lazy">
-             <img src="/imagenes/V1.jpeg" alt="Foto 3" class="galeria-imagen" onclick="changePhoto(this)" loading="lazy">
-             <img src="/imagenes/V2.jpeg" alt="Foto 4" class="galeria-imagen" onclick="changePhoto(this)" loading="lazy">
-           </div>
-        </div>
-        <!-- Modal para visualización de fotos -->
-        <div id="photo-modal" class="photo-modal" onclick="closeModal(event)">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <img id="main-photo-modal" src="" alt="Imagen ampliada">
-        </div>
+                <!--div cerezo-->
+                <div class="section-cerezo1"></div>
          <!--filter-->
-         <div class="section-filter fade-in-element">
-            <lord-icon
-             src="https://cdn.lordicon.com/wsaaegar.json"
-             trigger="loop"
-             delay="2000"
-             stroke="light"
+         <section class="section-filter visible">
+            <lord-icon src="https://cdn.lordicon.com/wsaaegar.json"
+             trigger="loop" 
+             delay="2000" 
+             stroke="light" 
              colors="primary:#d4af37,secondary:#b22222"
-             style="width:200px;height:200px">
-            </lord-icon>
-            <h2>#misquinceFatima Andrea</h2>
-            <p>Sube las foto a Instagram utilizando mi hashtag, y poder convertir estas memorias en eternas.</p>
-        </div>
-        <!-- Imagen -->
-        <div class="section fade-in-element">
-            <img src="/imagenes/V4.jpeg" alt="Foto de la quinceañera" width="100%" loading="lazy">
-        </div>
+             style="width:200px;height:200px"
+             ></lord-icon>
+            <h3>#misquincefatimadeleon</h3>
+            <p>Subí tus fotos a Instagram con nuestro hashtag para convertir las memorias en eternas.</p>
+          </section>
+              <!--div cerezo-->
+    <div class="section-cerezo1"></div>
+         <section class="album-section fade-in-element visible">
+            <h3>¡Hagamos los recuerdos inolvidables!</h3>
+            <img src="/imagenes/QR-FATIMA.png" alt="Código QR del álbum digital" class="album-qr">
+            <p>Escaneá el código QR o usá el botón para subir tus fotos</p>
+            <a class="upload-btn" href="https://drive.google.com/drive/folders/1Yd4RrsBa6AIDG5QB7uZN9hd5cwXVsGQF?usp=drive_link" target="_blank" rel="noopener">Subir Fotos</a>
+          </section>          
+    <!--div cerezo-->
+    <div class="section-cerezo1"></div>
+    <!-- Sección: Buenos deseos -->
+    <div class="section-wishes fade-in-element visible">
+    <h2>Buenos deseos</h2>
+  
+    <button id="mostrarFormularioBtn">Enviar deseo</button>
+  
+    <div id="formularioDeseo" style="display: none;">
+      <form id="wishForm">
+        <input type="text" id="nombre" placeholder="Nombre" required>
+        <br>
+        <textarea id="mensaje" placeholder="Mensaje" required></textarea>
+        <br>
+        <button type="submit">Enviar deseo</button>
+      </form>
+    </div>
+  
+    <button id="verDeseosBtn">Ver buenos deseos</button>
+    <div id="wishesContainer" style="margin-top: 20px; display: none;"></div>
+  
+    <!-- Efecto y sonido (opcional) -->
+    <div id="magicEffect" aria-hidden="true"></div>
+    <audio id="magicSound" src="magia.mp3" preload="auto"></audio>
+    </div>
+      <!--div cerezo-->
+      <div class="section-cerezo1"></div>
         <!-- frase final-->
         <div class="section-quote fade-in-element">
-            <h1>Tu presencia es el mejor regalo. Nos sentimos bendecidos de compartir este día tan especial contigo.</h1>
+            <h1>Quince estrellas bajaron del cielo, trayendome en su esplendor quince capullos de rosas, quince jazmines en flor y un angel con su dulzura, Quince años me concedió.</h1>
         </div>
         <!-- Footer -->
         <footer>
@@ -236,6 +238,9 @@
             </div>
         </footer>
     </div>
+    <script src="/invitados.js"></script>
     <script src="/script.js"></script>
+      <!-- Carga Firebase (modular) y lógica de deseos -->
+  <script type="module" src="/firebase.js"></script>
 </body>
 </html>
