@@ -60,6 +60,7 @@ window.invitados = {
   '59': { nombre: 'sin nombre', pases: 5 },
   '60': { nombre: 'Damaris Pineda', pases: 1 },
   '61': { nombre: 'José Merida', pases: 1 },
+  '62': { nombre: 'Ana Samayoa Ramazzini', pases: 1 }
 };
 
   
